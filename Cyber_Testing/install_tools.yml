@@ -1,0 +1,21 @@
+--- 
+- hosts: localhost
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Install Nikto - web scanner
+      yum:
+        name: nikto
+      state: present
+    - name: Install Nmap - port scanner
+      yum:  
+        name: nmap
+      state: present
+    - name: Install Hping3
+      yum:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - epel-release
+        - hping3
+

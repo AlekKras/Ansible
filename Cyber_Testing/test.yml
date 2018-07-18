@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: install cyber security tools
+      yum:
+        name: nikto
+      state: present
+
+
