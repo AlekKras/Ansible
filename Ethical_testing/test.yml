@@ -1,0 +1,29 @@
+--- 
+- hosts: localhost
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Testing
+      script: scripts/test.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Nikto Run on HUG
+      script: scripts/HUG_nikto.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Nikto Run on RESCARE
+      script: scripts/RESCARE_nikto.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Slowhttps test on HUG
+      script: scripts/HUG_slowhttptest.sh
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: Slowhttps test on RESCARE
+      script: scripts/ RESCARE_slowhttptest.sh
+      register: out
+    - debug: var=out.stdout_lines
