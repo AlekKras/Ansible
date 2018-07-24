@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Install Create-React-App
+      script: scripts/install.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Create New Project
+      script: scripts/project.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Go inside the folder and Show the dirs
+      script: scripts/go.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Create Dockerfile
+      script: scripts/create_docker.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Create Run.sh
+      script: scripts/create_run.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Build container
+      script: scripts/build.sh
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Run container
+      script: scripts/run_container.sh
+      register: out
+    - debug: var=out.stdout_lines
+
