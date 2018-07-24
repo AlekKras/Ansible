@@ -11,9 +11,9 @@ If something doesn't work, make sure that you have run `rm -rf docker-create-rea
 ### Possible troubleshoot
 
 <ul>
-<li> `rm -rf docker-create-react-app` </li>
+<li> <code> rm -rf docker-create-react-app </code> </li>
 <li> delete docker containers on the same port </li>
-<li> `bash scripts/create_docker.sh && bash scripts/create_run.sh` </li>
+<li> <code> bash scripts/create_docker.sh && bash scripts/create_run.sh </code> </li>
 </ul>
 
 If those steps didn't help you, raise an issue. Thank you for collaboration
